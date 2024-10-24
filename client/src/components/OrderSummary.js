@@ -30,8 +30,8 @@ const OrderSummary = ({ order }) => {
   return (
     <div className="order-summary">
       <h3>Order Summary</h3>
-      <table>
-        <thead>
+      <table className="table table-striped table-bordered">
+     <thead className="thead-dark">
           <tr>
             <th>Product Name</th>
             <th>Quantity</th>

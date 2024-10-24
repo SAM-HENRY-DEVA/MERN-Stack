@@ -4,11 +4,17 @@ import React, { useState } from 'react';
 const ProductForm = ({ products, onAddProduct }) => {
   const [selectedProduct, setSelectedProduct] = useState('');
   const [quantity, setQuantity] = useState(1);
+  // const [message, setMessage] = useState('');
 
   const handleAddProduct = () => {
-    if (selectedProduct && quantity > 0) {
+    console.log("ID: ", selectedProduct, "  Quantity: ", quantity)
+    if ((selectedProduct) && (quantity > 0)) {
       onAddProduct({ product: selectedProduct, quantity });
-    }
+    } 
+    // else {
+    //   setMessage('Product cannot be added - ID: '+ selectedProduct+ '  Quantity: '+ quantity)
+    // }
+
   };
 
   return (
@@ -29,6 +35,7 @@ const ProductForm = ({ products, onAddProduct }) => {
         placeholder="Quantity"
       />
       <button onClick={handleAddProduct}>Add Product</button>
+      {/* <p>{message}</p> */}
     </div>
   );
 };

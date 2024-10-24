@@ -9,7 +9,7 @@ function App() {
 
   // Fetch products from the backend API when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://growxcd-mern-backend.onrender.com/api/products')
       .then((response) => {
         setProducts(response.data); // Update the products state with data from API
       })
@@ -21,12 +21,13 @@ function App() {
   const addProductToOrder = (item) => {
     const product = products.find(p => p._id === item.product);
     setOrder([...order, { product, quantity: item.quantity }]);
+
   };
 
   return (
     <div className="App">
       <h1>POS System</h1>
-      <ProductForm products={products} onAddProduct={addProductToOrder} />
+      <ProductForm products={products} onAddProduct={addProductToOrder}/>
       <OrderSummary order={order} />
     </div>
   );
